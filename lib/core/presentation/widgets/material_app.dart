@@ -13,6 +13,7 @@ class CustomMaterialApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 791),
       builder: (_, __) => GetMaterialApp(
+        defaultTransition: Transition.downToUp,
         initialBinding: InitialInjection(),
         title: "Application",
         theme: AppTheme.theme,

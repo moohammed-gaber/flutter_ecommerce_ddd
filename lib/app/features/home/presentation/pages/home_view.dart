@@ -28,6 +28,13 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
     4: Routes.CART,
   };
 
+  final routeToIndex = {
+    Routes.GROCERY: 0,
+    Routes.NEWS: 1,
+    Routes.FAVOURITE: 3,
+    Routes.CART: 4,
+  };
+
   @override
   StatelessElement createElement() {
     controller.view = this;
@@ -36,112 +43,117 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        if (navigatorKey.currentState?.canPop() ?? false) {
-          navigatorKey.currentState?.pop();
-          return false;
-        }
-        return true;
-      },
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          actions: [
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: darkBlue, width: 1),
-                  shape: BoxShape.circle),
-              height: 50,
-              width: 50,
-            )
-          ],
-          title: SizedBox(
-            width: 122.w,
-            height: 34.h,
-            child: Stack(
-              children: [
-                Image.asset('assets/clips/clip.png'),
-                Center(
-                  child: Row(
-                    children: [
-                      SizedBox(width: 10.w),
-                      Image.asset(
-                        'assets/icons/gps.png',
-                        width: 12.w,
-                        height: 16.h,
-                        fit: BoxFit.cover,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 7.w),
-                      Text('Mustafa St.', style: w500Sp11),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
-          onPressed: () {
-            Get.toNamed(Routes.CART);
-          },
+    // print(navigatorKey.currentState?.settings?.name);
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        actions: [
+          Container(
+            decoration: BoxDecoration(
+                border: Border.all(color: darkBlue, width: 1),
+                shape: BoxShape.circle),
+            height: 30.h,
+            width: 30.w,
+          )
+        ],
+        title: SizedBox(
+          width: 122.w,
+          height: 34.h,
           child: Stack(
             children: [
-              Image.asset('assets/icons/cart.png'),
-              GetBuilder<CartController>(
-                  id: 'total',
-                  builder: (logic) {
-                    final total = logic.state.loadDataState.value;
-                    if (total is CartDataLoadSuccess)
-                      return Text(
-                        logic.cart.total.priceWithCurrency,
-                        style: w400Sp11White,
-                      );
-                    return SizedBox();
-                  }),
+              Image.asset('assets/clips/clip.png'),
+              Center(
+                child: Row(
+                  children: [
+                    SizedBox(width: 10.w),
+                    Image.asset(
+                      'assets/icons/gps.png',
+                      width: 12.w,
+                      height: 16.h,
+                      fit: BoxFit.cover,
+                      color: Colors.white,
+                    ),
+                    SizedBox(width: 7.w),
+                    Text('Mustafa St.', style: w500Sp11),
+                  ],
+                ),
+              )
             ],
           ),
         ),
-        bottomNavigationBar: GetBuilder<HomeController>(builder: (logic) {
-          return BottomNavigationBar(
-            onTap: controller.bottomNavigationItemPressed,
-            unselectedIconTheme: IconThemeData(color: grey),
-            unselectedLabelStyle: w400Sp7,
-            unselectedFontSize: 7.sp,
-            selectedFontSize: 7.sp,
-            currentIndex: logic.state.selectedBottomNavIndex,
-            selectedIconTheme: IconThemeData(color: red),
-            selectedItemColor: red,
-            backgroundColor: Colors.white,
-            showUnselectedLabels: true,
-            unselectedItemColor: Color(0xff949494),
-            items: [
-              BottomNavigationBarItem(
-                  icon: Image.asset(
-                    'assets/icons/grocery.png',
-                  ),
-                  label: 'Grocery'),
-              BottomNavigationBarItem(
-                  icon: Image.asset('assets/icons/notification.png'),
-                  label: 'News'),
-              BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
-              BottomNavigationBarItem(
-                  icon: Image.asset('assets/icons/love.png'),
-                  label: 'Favourites'),
-              BottomNavigationBarItem(
-                  icon: Image.asset('assets/icons/wallet.png'), label: 'Cart')
-            ],
-          );
-        }),
-        body: Navigator(
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        onPressed: () {
+          Get.toNamed(Routes.CART);
+        },
+        child: Stack(
+          children: [
+            Image.asset('assets/icons/cart.png'),
+            GetBuilder<CartController>(
+                id: 'total',
+                builder: (logic) {
+                  final total = logic.state.loadDataState.value;
+                  if (total is CartDataLoadSuccess)
+                    return Text(
+                      logic.cart.total.priceWithCurrency,
+                      style: w400Sp11White,
+                    );
+                  return SizedBox();
+                }),
+          ],
+        ),
+      ),
+      bottomNavigationBar: GetBuilder<HomeController>(builder: (logic) {
+        return BottomNavigationBar(
+          onTap: controller.bottomNavigationItemPressed,
+          unselectedLabelStyle: w400Sp7,
+          selectedLabelStyle: w400Sp7,
+          selectedItemColor: red,
+          unselectedFontSize: 7.sp,
+          selectedFontSize: 7.sp,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: logic.state.selectedBottomNavIndex,
+          items: [
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/icons/grocery.png',
+                ),
+                label: 'Grocery'),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/icons/notification.png'),
+                label: 'News'),
+            BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/icons/love.png'),
+                label: 'Favourites'),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/icons/wallet.png'), label: 'Cart')
+          ],
+        );
+      }),
+      body: WillPopScope(
+        onWillPop: () async {
+          if (navigatorKey.currentState?.canPop() ?? false) {
+            String? currentPath;
+            navigatorKey.currentState?.pop();
+            navigatorKey.currentState?.popUntil((route) {
+              currentPath = route.settings.name;
+              return true;
+            });
+            controller
+                .updateSelectedBottomNavBarIndex(routeToIndex[currentPath]??0);
+            print('currentPath $currentPath');
+
+            return false;
+          }
+          return true;
+        },
+        child: Navigator(
+          transitionDelegate: DefaultTransitionDelegate(),
             initialRoute: Routes.GROCERY,
             key: navigatorKey,
-            onPopPage: (x, y) {
-              return true;
-            },
             onGenerateRoute: (RouteSettings settings) {
               switch (settings.name) {
                 case Routes.GROCERY:
@@ -173,24 +185,24 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
                 default:
               }
             }),
-/*
-        body: Center(
-          child: Container(
-            // color: Colors.red,
-            child: Image.asset(
-                'assets/icons/grocery'
-                '.png',
-                // color: Colors.white,
-                // allowDrawingOutsideViewBox: true,
-                fit: BoxFit.cover,
-                // semanticsLabel: 'My SVG Picture',
-
-                height: 500.h,
-                width: 500.w),
-          ),
-        ),
-*/
       ),
+/*
+      body: Center(
+        child: Container(
+          // color: Colors.red,
+          child: Image.asset(
+              'assets/icons/grocery'
+              '.png',
+              // color: Colors.white,
+              // allowDrawingOutsideViewBox: true,
+              fit: BoxFit.cover,
+              // semanticsLabel: 'My SVG Picture',
+
+              height: 500.h,
+              width: 500.w),
+        ),
+      ),
+*/
     );
     return Scaffold(
       appBar: AppBar(
@@ -205,8 +217,9 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
   }
 
   @override
-  void navigate(int index) {
-    print('navigate $index');
-    navigatorKey.currentState!.pushNamed(indexToRoute[index]!);
+  Future<void> navigate(int index) async {
+    final reuslt =
+        await navigatorKey.currentState!.pushNamed(indexToRoute[index]!);
+    print(reuslt);
   }
 }

@@ -9,10 +9,14 @@ class HomeController extends GetxController implements HomeEvent {
 
   HomeController(this.state);
 
-  @override
-  void bottomNavigationItemPressed(int index) {
+  void updateSelectedBottomNavBarIndex(int index) {
     state = state.copyWith(selectedBottomNavIndex: index);
     update();
+  }
+
+  @override
+  void bottomNavigationItemPressed(int index) {
+    updateSelectedBottomNavBarIndex(index);
     view.navigate(index);
   }
 }

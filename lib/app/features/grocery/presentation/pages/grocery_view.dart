@@ -15,11 +15,6 @@ class GroceryView extends GetView<GroceryController> {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.height);
-    print(791);
-    // controller.loadData();
-
-    print(49.h);
     return Scaffold(
       body: Obx(() {
         final loadState = controller.state.loadDataState.value;

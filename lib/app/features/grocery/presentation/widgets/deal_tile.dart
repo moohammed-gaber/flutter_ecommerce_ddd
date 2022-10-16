@@ -53,14 +53,6 @@ class DealTile extends StatelessWidget {
                             favoriteDeal.isFavourite ? Colors.red : Colors.grey,
                         size: 12,
                       ),
-                      /*Image.asset(
-                        'assets/icons/love.png',
-                        width: 9.w,
-                        height: 9.h,
-                        color: favoriteDeal.isFavourite
-                            ? Colors.red
-                            : Colors.grey,
-                      )*/
                     ),
                   ),
                 ),
@@ -114,7 +106,7 @@ class DealTile extends StatelessWidget {
                   ),
                   Text(
                     deal.priceBeforeDiscount!.priceWithCurrency,
-                    style: boldSp13Pink,
+                    style: boldSp13Pink.copyWith(decoration: TextDecoration.lineThrough),
                   )
                 ],
               ),

@@ -6,45 +6,7 @@ class AppTheme {
       scaffoldBackgroundColor: white,
       appBarTheme: AppBarTheme(color: white),
       fontFamily: 'Poppins',
-      textTheme: TextTheme(
-
-/*
-        bodyText1: TextStyle(
-            color: Color(0xff474749),
-            fontWeight: FontWeight.bold,
-            fontSize: 11),
-        bodyText2: TextStyle(
-            color: Color(0xff474749), fontWeight: FontWeight.w400, fontSize: 9),
-        bodyLarge: TextStyle(
-            color: Color(0xff474749),
-            fontWeight: FontWeight.bold,
-            fontSize: 11),
-        bodyMedium: TextStyle(
-            color: Color(0xff474749), fontWeight: FontWeight.w400, fontSize: 9),
-*/
-          ),
-/*
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-
-          selectedItemColor: red,
-          unselectedItemColor: grey,
-          selectedLabelStyle: w500Sp7,
-          unselectedLabelStyle: w500Sp7,
-          unselectedIconTheme: IconThemeData(color: grey),
-          selectedIconTheme: IconThemeData(color: red),
-
-
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-*/
-/*
-          unselectedIconTheme: IconThemeData(color: grey),
-          selectedIconTheme: IconThemeData(color: red),
-*/ /*
-
-          type: BottomNavigationBarType.fixed),
-*/
+      textTheme: TextTheme(),
       inputDecorationTheme: InputDecorationTheme(
           filled: true,
           enabledBorder: OutlineInputBorder(

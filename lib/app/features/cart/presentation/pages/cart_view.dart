@@ -37,6 +37,11 @@ class CartView extends GetView<CartController> {
             if (loadState is CartDataLoadSuccess) {
               final cart = loadState.cart;
               final products = cart.products;
+              if(products.isEmpty){
+                return Center(
+                  child: Text('Cart is empty'),
+                );
+              }
               return Expanded(
                 child: CartListView(products: products),
               );

@@ -18,12 +18,7 @@ class AppPages {
 
   static const INITIAL = Routes.HOME;
 
-  static final routes = [
-    GetPage(
-      name: _Paths.HOME,
-      page: () => HomeView(),
-      binding: HomeBinding(),
-    ),
+  static final homePages = [
     GetPage(
       name: _Paths.CART,
       page: () => const CartView(),
@@ -44,5 +39,13 @@ class AppPages {
       page: () => const FavouriteView(),
       binding: FavouriteBinding(),
     ),
+  ];
+  static final routes = [
+    GetPage(
+      name: _Paths.HOME,
+      page: () => HomeView(),
+      binding: HomeBinding(),
+    ),
+    ...homePages
   ];
 }
