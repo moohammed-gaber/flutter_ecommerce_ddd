@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="792" viewBox="0 0 375 792">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_20219" data-name="Path 20219" d="M0,0H375V-792H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_16136" data-name="Group 16136" transform="translate(0 792)" clip-path="url(#clip-path)">
+    <g id="Group_16132" data-name="Group 16132" transform="translate(169 -138)">
+      <text id="_Available_until_24_December_2020" data-name="* Available until 24 December 2020" transform="translate(0 9)" fill="#fff" font-size="9" font-family="SegoeUI, Segoe UI" letter-spacing="0.029em"><tspan x="0" y="0">* Available until 24 December 2020</tspan></text>
+    </g>
+    <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(165 -229)">
+      <g id="Group_16129" data-name="Group 16129" transform="translate(0 6)">
+        <text id="WHOPP" transform="translate(0 33)" fill="#21114b" font-size="31" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.029em"><tspan x="0" y="0">WHOPP</tspan></text>
+      </g>
+      <g id="Group_16130" data-name="Group 16130" transform="translate(-7 6)">
+        <text id="E" transform="translate(122.886 33)" fill="#d13a27" font-size="31" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">E</tspan></text>
+      </g>
+      <g id="Group_16131" data-name="Group 16131" transform="translate(-7 6)">
+        <text id="R" transform="translate(140.569 33)" fill="#21114b" font-size="31" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">R</tspan></text>
+      </g>
+      <g id="Group_16133" data-name="Group 16133">
+        <text id="Mega" transform="translate(0 12)" fill="#d03a27" font-size="11" font-family="SegoeUI, Segoe UI" letter-spacing="0.029em"><tspan x="0" y="0">Mega</tspan></text>
+      </g>
+    </g>
+    <g id="Group_16134" data-name="Group 16134" transform="translate(169 -178)">
+      <text id="_17" data-name="$ 17" transform="translate(0 19)" fill="#ee6a61" font-size="18" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.029em"><tspan x="0" y="0">$ 17</tspan></text>
+    </g>
+    <g id="Group_16135" data-name="Group 16135" transform="translate(243 -179)">
+      <text id="_32" data-name="$ 32" transform="translate(0 19)" fill="#fff" font-size="18" font-family="SegoeUI, Segoe UI" letter-spacing="0.029em"><tspan x="0" y="0">$ 32</tspan></text>
+    </g>
+  </g>
+</svg>
