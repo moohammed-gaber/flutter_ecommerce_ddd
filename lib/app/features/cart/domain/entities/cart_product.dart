@@ -1,72 +1,66 @@
 import 'package:untitled/app/features/grocery/domain/entities/product.dart';
+import 'package:untitled/core/domain/value_objects/price_value_object.dart';
 
-class CartProduct {
+class ProductInCart {
   final String name;
   final String description;
-  final num price;
+  final Price pricePerOne;
   final int quantity;
+  final Price totalPrice;
+
+  num getTotalPrice(Price price, int quantity) {
+    return price.value * quantity;
+  }
 
 //<editor-fold desc="Data Methods">
 
-  const CartProduct({
+  const ProductInCart({
     required this.name,
     required this.description,
-    required this.price,
+    required this.pricePerOne,
     required this.quantity,
+    required this.totalPrice,
   });
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is CartProduct &&
+      (other is ProductInCart &&
           runtimeType == other.runtimeType &&
           name == other.name &&
           description == other.description &&
-          price == other.price &&
+          pricePerOne == other.pricePerOne &&
           quantity == other.quantity);
 
   @override
   int get hashCode =>
-      name.hashCode ^ description.hashCode ^ price.hashCode ^ quantity.hashCode;
+      name.hashCode ^
+      description.hashCode ^
+      pricePerOne.hashCode ^
+      quantity.hashCode;
 
-  @override
-  String toString() {
-    return 'CartProduct{' +
-        ' name: $name,' +
-        ' description: $description,' +
-        ' price: $price,' +
-        ' quantity: $quantity,' +
-        '}';
-  }
-
-  CartProduct copyWith({
+  ProductInCart copyWith({
     String? name,
     String? description,
-    num? price,
+    Price? pricePerOne,
     int? quantity,
+    Price? totalPrice,
   }) {
-    return CartProduct(
+    return ProductInCart(
       name: name ?? this.name,
       description: description ?? this.description,
-      price: price ?? this.price,
+      pricePerOne: pricePerOne ?? this.pricePerOne,
       quantity: quantity ?? this.quantity,
+      totalPrice: totalPrice ?? this.totalPrice,
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'name': this.name,
-      'description': this.description,
-      'price': this.price,
-      'quantity': this.quantity,
-    };
-  }
-
-  factory CartProduct.fromMap(Map<String, dynamic> map) {
-    return CartProduct(
+  factory ProductInCart.fromMap(Map<String, dynamic> map) {
+    return ProductInCart(
+      totalPrice: Price(map['total_price']),
       name: map['name'] as String,
       description: map['description'] as String,
-      price: map['price'] as num,
+      pricePerOne: Price(map['price_per_one'] as num),
       quantity: map['quantity'] as int,
     );
   }

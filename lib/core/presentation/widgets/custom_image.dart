@@ -12,8 +12,7 @@ class CustomImage extends StatelessWidget {
       // random color
 
       decoration: BoxDecoration(
-        color: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-            .withOpacity(1.0),
+        color: Colors.red.withOpacity(0.5),
         borderRadius: BorderRadius.circular(10),
       ),
     );

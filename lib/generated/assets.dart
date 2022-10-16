@@ -2,16 +2,16 @@
 class Assets {
   Assets._();
 
-  static const String iconsCart = 'assets/icons/cart.svg';
-  static const String iconsGrocery = 'assets/icons/grocery.svg';
-  static const String iconsLocation = 'assets/icons/location.svg';
-  static const String iconsLove = 'assets/icons/love.svg';
-  static const String iconsMinus = 'assets/icons/minus.svg';
-  static const String iconsNotification = 'assets/icons/notification.svg';
-  static const String iconsPlus = 'assets/icons/plus.svg';
-  static const String iconsSearch = 'assets/icons/search.svg';
-  static const String iconsTest = 'assets/icons/test.jpg';
-  static const String iconsWallet = 'assets/icons/wallet.svg';
+  static const String clipsClip = 'assets/clips/clip.png';
+  static const String iconsCart = 'assets/icons/cart.png';
+  static const String iconsGrocery = 'assets/icons/grocery.png';
+  static const String iconsLocation = 'assets/icons/location.png';
+  static const String iconsLove = 'assets/icons/love.png';
+  static const String iconsMinus = 'assets/icons/minus.png';
+  static const String iconsNotification = 'assets/icons/notification.png';
+  static const String iconsPlus = 'assets/icons/plus.png';
+  static const String iconsSearch = 'assets/icons/search.png';
+  static const String iconsWallet = 'assets/icons/wallet.png';
   static const String imagesGroup 16136 = 'assets/images/Group 16136.svg';
   static const String localDataSourceCart = 'assets/mock_data_sources/local_data_source/cart.json';
   static const String poppinsPoppinsBold = 'assets/fonts/poppins/Poppins-Bold.ttf';

@@ -4,6 +4,8 @@ import 'package:untitled/core/presentation/theme/text_styles.dart';
 
 class AppTheme {
   static ThemeData get theme => ThemeData(
+    scaffoldBackgroundColor: white,
+    appBarTheme: AppBarTheme(color: white),
       fontFamily: 'Poppins',
       textTheme: TextTheme(
 

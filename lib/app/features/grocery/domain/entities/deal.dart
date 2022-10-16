@@ -1,19 +1,23 @@
+import 'package:untitled/core/domain/value_objects/price_value_object.dart';
+
 class Deal {
+  final String id;
   final String image;
   final String name;
   final int piecesCount;
-  final num price;
-  final num? priceBeforeDiscount;
-  final num timeAway;
+  final Price price;
+  final Price priceBeforeDiscount;
+  final String timeAway;
 
 //<editor-fold desc="Data Methods">
 
   const Deal({
     required this.image,
+    required this.id,
     required this.name,
     required this.piecesCount,
     required this.price,
-    this.priceBeforeDiscount,
+    required this.priceBeforeDiscount,
     required this.timeAway,
   });
 
@@ -40,6 +44,7 @@ class Deal {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': this.id,
       'image': this.image,
       'name': this.name,
       'piecesCount': this.piecesCount,
@@ -51,12 +56,13 @@ class Deal {
 
   factory Deal.fromMap(Map<String, dynamic> map) {
     return Deal(
+      id: map['id'],
       image: map['image'] as String,
       name: map['name'] as String,
       piecesCount: map['piecesCount'] as int,
-      price: map['price'] as num,
-      priceBeforeDiscount: map['priceBeforeDiscount'] as num,
-      timeAway: map['timeAway'] as num,
+      price: Price(map['price'] as num),
+      priceBeforeDiscount: Price(map['priceBeforeDiscount'] as num),
+      timeAway: map['timeAway'] as String,
     );
   }
 

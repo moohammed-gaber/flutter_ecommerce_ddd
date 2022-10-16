@@ -1,7 +1,10 @@
+import 'package:untitled/core/domain/value_objects/date_value_object.dart';
+import 'package:untitled/core/domain/value_objects/price_value_object.dart';
+
 class Offer {
-  final num oldPrice, price;
+  final Price oldPrice, price;
   final String title, subtitle;
-  final DateTime availableUntil;
+  final Date availableUntil;
 
 //<editor-fold desc="Data Methods">
 
@@ -43,39 +46,13 @@ class Offer {
         '}';
   }
 
-  Offer copyWith({
-    num? oldPrice,
-    num? price,
-    String? title,
-    String? subtitle,
-    DateTime? availableUntil,
-  }) {
-    return Offer(
-      oldPrice: oldPrice ?? this.oldPrice,
-      price: price ?? this.price,
-      title: title ?? this.title,
-      subtitle: subtitle ?? this.subtitle,
-      availableUntil: availableUntil ?? this.availableUntil,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'oldPrice': this.oldPrice,
-      'price': this.price,
-      'title': this.title,
-      'subtitle': this.subtitle,
-      'availableUntil': this.availableUntil,
-    };
-  }
-
   factory Offer.fromMap(Map<String, dynamic> map) {
     return Offer(
-      oldPrice: map['oldPrice'] as num,
-      price: map['price'] as num,
+      oldPrice: Price(map['oldPrice'] as num),
+      price: Price(map['price'] as num),
       title: map['title'] as String,
       subtitle: map['subtitle'] as String,
-      availableUntil: map['availableUntil'] as DateTime,
+      availableUntil: Date(DateTime.parse(map['availableUntil'])),
     );
   }
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-import 'package:untitled/app/features/cart/presentation/widgets/cart_tile.dart';
-
-import '../../controllers/cart_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:untitled/app/features/cart/controllers/cart_controller.dart';
+import 'package:untitled/app/features/cart/controllers/cart_state.dart';
+import 'package:untitled/app/features/cart/presentation/pages/cart_list_view.dart';
 
 class CartView extends GetView<CartController> {
   const CartView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,19 +18,31 @@ class CartView extends GetView<CartController> {
             padding: const EdgeInsets.only(top: 45, bottom: 36).r,
             child: Text('Cart'),
           ),
-          Expanded(
-            child: ListView.separated(
-              itemCount: 20,
-              itemBuilder: (BuildContext context, int index) {
-                return CartTile();
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(
-                  height: 35,
-                );
-              },
-            ),
-          ),
+          Obx(() {
+            final loadState = controller.state.loadDataState.value;
+
+            if (loadState is CartDataLoadInProgress) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (loadState is CartDataLoadFailure) {
+              return Center(
+                child: OutlinedButton(
+                  onPressed: controller.loadData,
+                  child: Text('Retry'),
+                ),
+              );
+            }
+            if (loadState is CartDataLoadSuccess) {
+              final cart = loadState.cart;
+              final products = cart.products;
+              return Expanded(
+                child: CartListView(products: products),
+              );
+            }
+            throw UnimplementedError();
+          }),
         ]),
       ),
     );
