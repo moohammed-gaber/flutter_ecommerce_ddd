@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:untitled/app/features/cart/bindings/cart_binding.dart';
-import 'package:untitled/app/features/cart/controllers/cart_controller.dart';
+import 'package:untitled/app/features/cart/application/binding/cart_binding.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_controller.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_state.dart';
 import 'package:untitled/app/features/cart/presentation/pages/cart_view.dart';
 import 'package:untitled/app/features/favourite_deal/application/binding/favourite_binding.dart';
-import 'package:untitled/app/features/grocery/bindings/grocery_binding.dart';
-import 'package:untitled/app/features/grocery/views/grocery_view.dart';
-import 'package:untitled/app/features/home/presentation/manager/home_view_contract.dart';
 import 'package:untitled/app/features/favourite_deal/presentation/pages/favourite_view.dart';
-import 'package:untitled/app/modules/news/bindings/news_binding.dart';
-import 'package:untitled/app/modules/news/views/news_view.dart';
+import 'package:untitled/app/features/grocery/application/binding/grocery_binding.dart';
+import 'package:untitled/app/features/grocery/presentation/pages/grocery_view.dart';
+import 'package:untitled/app/features/home/application/controllers/home_view_contract.dart';
+import 'package:untitled/app/features/news/application/binding/news_binding.dart';
+import 'package:untitled/app/features/news/presentation/pages/news_view.dart';
 import 'package:untitled/core/application/routes/app_pages.dart';
 import 'package:untitled/core/presentation/theme/colors.dart';
 import 'package:untitled/core/presentation/theme/text_styles.dart';
-import 'package:websafe_svg/websafe_svg.dart';
 
-import '../manager/home_controller.dart';
+import '../../application/controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> implements HomeViewContract {
   HomeView({Key? key}) : super(key: key);
@@ -95,11 +94,14 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
               GetBuilder<CartController>(
                   id: 'total',
                   builder: (logic) {
-                return Text(
-                  logic.cart.total.priceWithCurrency,
-                  style: w400Sp11White,
-                );
-              }),
+                    final total = logic.state.loadDataState.value;
+                    if (total is CartDataLoadSuccess)
+                      return Text(
+                        logic.cart.total.priceWithCurrency,
+                        style: w400Sp11White,
+                      );
+                    return SizedBox();
+                  }),
             ],
           ),
         ),

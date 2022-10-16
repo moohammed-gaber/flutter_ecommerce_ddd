@@ -1,16 +1,15 @@
 import 'package:get/get.dart';
 import 'package:untitled/app/features/favourite_deal/application/binding/favourite_binding.dart';
 
-import '../../../app/features/cart/bindings/cart_binding.dart';
+import '../../../app/features/cart/application/binding/cart_binding.dart';
 import '../../../app/features/cart/presentation/pages/cart_view.dart';
-import '../../../app/features/grocery/bindings/grocery_binding.dart';
-import '../../../app/features/grocery/views/grocery_view.dart';
-import '../../../app/features/home/bindings/home_binding.dart';
-import '../../../app/features/home/presentation/pages/home_view.dart';
-import '../../../app/features/home/presentation/pages/home_view.dart';
 import '../../../app/features/favourite_deal/presentation/pages/favourite_view.dart';
-import '../../../app/modules/news/bindings/news_binding.dart';
-import '../../../app/modules/news/views/news_view.dart';
+import '../../../app/features/grocery/application/binding/grocery_binding.dart';
+import '../../../app/features/grocery/presentation/pages/grocery_view.dart';
+import '../../../app/features/home/application/home_binding.dart';
+import '../../../app/features/home/presentation/pages/home_view.dart';
+import '../../../app/features/news/application/binding/news_binding.dart';
+import '../../../app/features/news/presentation/pages/news_view.dart';
 
 part 'app_routes.dart';
 

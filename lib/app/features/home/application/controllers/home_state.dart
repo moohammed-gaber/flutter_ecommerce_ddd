@@ -5,8 +5,11 @@ class HomeState {
 
   // initial
   factory HomeState.initial() => HomeState(selectedBottomNavIndex: 0);
+
   // copy with
   HomeState copyWith({int? selectedBottomNavIndex}) {
-    return HomeState(selectedBottomNavIndex: selectedBottomNavIndex ?? this.selectedBottomNavIndex);
+    return HomeState(
+        selectedBottomNavIndex:
+            selectedBottomNavIndex ?? this.selectedBottomNavIndex);
   }
 }

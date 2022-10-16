@@ -1,5 +1,5 @@
 class Category {
-  final String image,name;
+  final String image, name;
 
 //<editor-fold desc="Data Methods">
 

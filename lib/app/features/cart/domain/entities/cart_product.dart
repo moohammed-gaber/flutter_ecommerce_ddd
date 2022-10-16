@@ -1,4 +1,3 @@
-import 'package:untitled/app/features/grocery/domain/entities/product.dart';
 import 'package:untitled/core/domain/value_objects/price_value_object.dart';
 
 class ProductInCart {

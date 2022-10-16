@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled/app/features/cart/controllers/cart_controller.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_controller.dart';
 import 'package:untitled/app/features/cart/domain/entities/cart_product.dart';
 import 'package:untitled/app/features/cart/presentation/widgets/quantity_button.dart';
 import 'package:untitled/core/presentation/theme/text_styles.dart';
@@ -19,7 +19,6 @@ class CartListView extends GetView<CartController> {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: products.length,
-
       itemBuilder: (BuildContext context, int index) {
         final product = products[index];
         return SizedBox(

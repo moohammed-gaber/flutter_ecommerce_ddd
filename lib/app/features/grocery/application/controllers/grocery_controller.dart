@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:untitled/app/features/favourite_deal/domain/entities/favourite_deal.dart';
 import 'package:untitled/app/features/favourite_deal/domain/repositories/favourite_deal_repo.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_state.dart';
+import 'package:untitled/app/features/grocery/application/controllers/grocery_state.dart';
 import 'package:untitled/app/features/grocery/domain/entities/grocery_data.dart';
 import 'package:untitled/app/features/grocery/domain/repositories/grocery_repo.dart';
 

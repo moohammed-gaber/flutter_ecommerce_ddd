@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:untitled/app/features/favourite_deal/domain/entities/favourite_deal.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_controller.dart';
-import 'package:untitled/app/features/grocery/domain/entities/deal.dart';
 import 'package:untitled/core/presentation/theme/colors.dart';
 import 'package:untitled/core/presentation/theme/text_styles.dart';
 import 'package:untitled/core/presentation/widgets/custom_image.dart';
@@ -12,12 +9,14 @@ class DealTile extends StatelessWidget {
   const DealTile({
     Key? key,
     required this.favoriteDeal,
-    required this.onToggleFavourite, required this.index,
+    required this.onToggleFavourite,
+    required this.index,
   }) : super(key: key);
 
   final FavouriteDeal favoriteDeal;
   final VoidCallback onToggleFavourite;
   final int index;
+
   @override
   Widget build(BuildContext context) {
     final deal = favoriteDeal.deal;

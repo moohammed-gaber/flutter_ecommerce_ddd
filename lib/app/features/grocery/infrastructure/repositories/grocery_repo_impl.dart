@@ -6,6 +6,7 @@ class GroceryRepoImpl extends GroceryRepo {
   final RemoteMock mock;
 
   GroceryRepoImpl(this.mock);
+
   Future<GroceryData> getGroceryData() async {
     final data = await mock.getGroceryData();
     return GroceryData.fromMap(data);

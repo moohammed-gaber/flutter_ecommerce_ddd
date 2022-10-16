@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/app/features/favourite_deal/application/controllers/favourite_controller.dart';
 import 'package:untitled/app/features/favourite_deal/domain/entities/favourite_deal.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_controller.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_view_contract.dart';
-import 'package:untitled/app/features/grocery/views/deal_tile.dart';
+import 'package:untitled/app/features/grocery/application/controllers/grocery_controller.dart';
+import 'package:untitled/app/features/grocery/application/controllers/grocery_view_contract.dart';
+import 'package:untitled/app/features/grocery/presentation/widgets/deal_tile.dart';
 
 class DealsListView extends GetView<GroceryController>
     implements GroceryViewContract {

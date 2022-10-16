@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:untitled/app/features/home/presentation/manager/home_state.dart';
+import 'package:untitled/app/features/home/application/controllers/home_state.dart';
 
-import '../presentation/manager/home_controller.dart';
+import 'controllers/home_controller.dart';
 
 class HomeBinding extends Bindings {
   @override

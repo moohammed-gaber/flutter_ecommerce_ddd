@@ -6,6 +6,7 @@ class CartRepoImpl extends CartRepo {
   final LocalMock mock;
 
   CartRepoImpl(this.mock);
+
   @override
   Future<CartData> getCart() async {
     final result = await mock.getCart();

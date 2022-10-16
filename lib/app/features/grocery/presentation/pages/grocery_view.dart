@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled/app/features/favourite_deal/application/controllers/favourite_controller.dart';
-import 'package:untitled/app/features/favourite_deal/domain/entities/favourite_deal.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_state.dart';
-import 'package:untitled/app/features/grocery/controllers/grocery_view_contract.dart';
-import 'package:untitled/app/features/grocery/views/address_list_view.dart';
-import 'package:untitled/app/features/grocery/views/category_list_view.dart';
-import 'package:untitled/app/features/grocery/views/deals_list_view.dart';
+import 'package:untitled/app/features/grocery/application/controllers/grocery_state.dart';
+import 'package:untitled/app/features/grocery/presentation/widgets/address_list_view.dart';
+import 'package:untitled/app/features/grocery/presentation/widgets/category_list_view.dart';
+import 'package:untitled/app/features/grocery/presentation/widgets/deals_list_view.dart';
 import 'package:untitled/core/presentation/theme/colors.dart';
 import 'package:untitled/core/presentation/theme/text_styles.dart';
 
-import '../controllers/grocery_controller.dart';
+import '../../application/controllers/grocery_controller.dart';
 
-class GroceryView extends GetView<GroceryController>
-     {
+class GroceryView extends GetView<GroceryController> {
   const GroceryView({Key? key}) : super(key: key);
 
   @override
@@ -161,5 +157,4 @@ class GroceryView extends GetView<GroceryController>
       }),
     );
   }
-
 }

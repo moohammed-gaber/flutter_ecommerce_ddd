@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:untitled/app/features/cart/controllers/cart_controller.dart';
-import 'package:untitled/app/features/cart/controllers/cart_state.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_controller.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_state.dart';
 import 'package:untitled/app/features/cart/presentation/pages/cart_list_view.dart';
 
 class CartView extends GetView<CartController> {

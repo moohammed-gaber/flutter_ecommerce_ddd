@@ -6,12 +6,5 @@ import '../controllers/favourite_controller.dart';
 
 class FavouriteBinding extends Bindings {
   @override
-  void dependencies() {
-    Get.lazyPut<FavouriteController>(
-      () => FavouriteController(
-          // infrastructure
-          FavouriteState.initial(),
-          FavouriteDealRepoImpl()),
-    );
-  }
+  void dependencies() {}
 }

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:untitled/app/features/home/presentation/manager/home_event.dart';
-import 'package:untitled/app/features/home/presentation/manager/home_state.dart';
-import 'package:untitled/app/features/home/presentation/manager/home_view_contract.dart';
+import 'package:untitled/app/features/home/application/controllers/home_event.dart';
+import 'package:untitled/app/features/home/application/controllers/home_state.dart';
+import 'package:untitled/app/features/home/application/controllers/home_view_contract.dart';
 
 class HomeController extends GetxController implements HomeEvent {
   HomeState state;

@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:untitled/app/features/favourite_deal/application/controllers/favourite_state.dart';
 import 'package:untitled/app/features/favourite_deal/domain/entities/favourite_deal.dart';
 import 'package:untitled/app/features/favourite_deal/domain/repositories/favourite_deal_repo.dart';
-import 'package:untitled/app/features/grocery/domain/entities/deal.dart';
 
 class FavouriteController extends GetxController {
   //TODO: Implement FavouriteController
@@ -25,7 +24,7 @@ class FavouriteController extends GetxController {
   }
 
   Future<void> deleteByIndex(int index) async {
-    final deals =state.deals;
+    final deals = state.deals;
     final deal = deals[index];
     final result = await favouriteRepo.delete(deal.deal.id);
     final newDeals = state.deals;
@@ -33,7 +32,6 @@ class FavouriteController extends GetxController {
     state = state.copyWith(deals: newDeals);
     print(state.deals);
     update();
-
   }
 
   Future<void> delete(FavouriteDeal deal) async {

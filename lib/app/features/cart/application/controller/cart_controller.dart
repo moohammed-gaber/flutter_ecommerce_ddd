@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:untitled/app/features/cart/controllers/cart_events.dart';
-import 'package:untitled/app/features/cart/controllers/cart_state.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_events.dart';
+import 'package:untitled/app/features/cart/application/controller/cart_state.dart';
 import 'package:untitled/app/features/cart/domain/entities/cart_data.dart';
 import 'package:untitled/app/features/cart/domain/repositories/cart_repo.dart';
 import 'package:untitled/core/domain/value_objects/price_value_object.dart';
@@ -27,7 +27,7 @@ class CartController extends GetxController implements CartEvents {
   @override
   void onInit() {
     super.onInit();
-    loadData();
+    loadData().then((value) => update(['total']));
   }
 
   CartData get cart => (state.loadDataState.value as CartDataLoadSuccess).cart;
@@ -42,8 +42,8 @@ class CartController extends GetxController implements CartEvents {
       final newQuantity = product.quantity - 1;
       final newProduct = product.copyWith(
           quantity: newQuantity,
-          totalPrice: Price(
-              product.getTotalPrice(product.pricePerOne, newQuantity)));
+          totalPrice:
+              Price(product.getTotalPrice(product.pricePerOne, newQuantity)));
       products[productIndex] = newProduct;
     } else {
       products.removeAt(productIndex);
@@ -52,7 +52,6 @@ class CartController extends GetxController implements CartEvents {
     state.loadDataState.value = CartDataLoadSuccess(
         newCartProducts.copyWith(total: newCartProducts.getTotalPrice()));
     update(['total']);
-
   }
 
   @override
@@ -62,8 +61,8 @@ class CartController extends GetxController implements CartEvents {
     final newQuantity = product.quantity + 1;
     final newProduct = product.copyWith(
         quantity: newQuantity,
-        totalPrice: Price(
-            product.getTotalPrice(product.pricePerOne, newQuantity)));
+        totalPrice:
+            Price(product.getTotalPrice(product.pricePerOne, newQuantity)));
     products[productIndex] = newProduct;
     final newCartProducts = cart.copyWith(products: products);
     state.loadDataState.value = CartDataLoadSuccess(

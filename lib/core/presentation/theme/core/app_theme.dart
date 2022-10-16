@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/core/presentation/theme/colors.dart';
-import 'package:untitled/core/presentation/theme/text_styles.dart';
 
 class AppTheme {
   static ThemeData get theme => ThemeData(
-    scaffoldBackgroundColor: white,
-    appBarTheme: AppBarTheme(color: white),
+      scaffoldBackgroundColor: white,
+      appBarTheme: AppBarTheme(color: white),
       fontFamily: 'Poppins',
       textTheme: TextTheme(
 
@@ -42,7 +41,7 @@ class AppTheme {
 /*
           unselectedIconTheme: IconThemeData(color: grey),
           selectedIconTheme: IconThemeData(color: red),
-*//*
+*/ /*
 
           type: BottomNavigationBarType.fixed),
 */

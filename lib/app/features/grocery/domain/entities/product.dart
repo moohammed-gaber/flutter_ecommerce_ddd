@@ -4,7 +4,6 @@ class Product {
   final String description;
   final num price;
 
-
 //<editor-fold desc="Data Methods">
 
   const Product({
@@ -17,12 +16,12 @@ class Product {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          (other is Product &&
-              runtimeType == other.runtimeType &&
-              name == other.name &&
-              image == other.image &&
-              description == other.description &&
-              price == other.price);
+      (other is Product &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          image == other.image &&
+          description == other.description &&
+          price == other.price);
 
   @override
   int get hashCode =>

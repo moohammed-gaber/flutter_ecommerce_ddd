@@ -10,6 +10,7 @@ class Price {
   Price operator +(Price other) {
     return Price(value + other.value);
   }
+
   // *
   Price operator *(int other) {
     return Price(value * other);

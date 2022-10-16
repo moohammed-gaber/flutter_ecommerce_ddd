@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:untitled/app/features/cart/domain/entities/cart_data.dart';
-import 'package:untitled/app/features/grocery/domain/entities/grocery_data.dart';
 
 class CartState {
   late final Rx<CartLoadDataState> loadDataState;
@@ -21,6 +20,7 @@ class CartDataLoadSuccess extends CartLoadDataState {
   final CartData cart;
 
   CartDataLoadSuccess(this.cart);
+
   // copy with
   CartDataLoadSuccess copyWith({
     CartData? cart,
