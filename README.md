@@ -1,1 +1,1 @@
-## DDD, GetX, Nested navigation, Clean code, Clean view models.
+## DDD, GetX, Nested navigation, Responsive UI, Clean code, Clean view models.
