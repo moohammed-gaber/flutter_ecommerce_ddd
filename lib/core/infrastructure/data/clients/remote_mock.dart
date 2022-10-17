@@ -56,8 +56,16 @@ class RemoteMock {
                   "price": 20,
                   "title": "Mega",
                   "subtitle": "WHOPPER",
-                  "availableUntil": "2011-12-19"
+                  "availableUntil": "2022-12-30"
+                },
+                {
+                  "oldPrice": 80,
+                  "price": 60,
+                  "title": "Super",
+                  "subtitle": "SUPREEME",
+                  "availableUntil": "2022-12-19"
                 }
+
               ]
             });
   }

@@ -46,7 +46,6 @@ class GroceryView extends GetView<GroceryController> {
                     const EdgeInsets.symmetric(vertical: 15, horizontal: 11).r,
                 child: TextField(
                   decoration: InputDecoration(
-                      prefixIconColor: Colors.black,
                       prefix: Image.asset(
                         'assets/icons/search.png',
                         // color: Colors.black,

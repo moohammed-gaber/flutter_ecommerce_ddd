@@ -4,11 +4,15 @@ import 'package:untitled/core/presentation/theme/colors.dart';
 class AppTheme {
   static ThemeData get theme => ThemeData(
       scaffoldBackgroundColor: white,
+      primarySwatch: Colors.red,
+      colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink),
       appBarTheme: AppBarTheme(color: white),
       fontFamily: 'Poppins',
       textTheme: TextTheme(),
       inputDecorationTheme: InputDecorationTheme(
           filled: true,
+          contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(width: 2, color: Color(0xffE0E0E0))),

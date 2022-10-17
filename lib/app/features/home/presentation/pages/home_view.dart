@@ -48,12 +48,15 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
       appBar: AppBar(
         elevation: 0,
         actions: [
-          Container(
-            decoration: BoxDecoration(
-                border: Border.all(color: darkBlue, width: 1),
-                shape: BoxShape.circle),
-            height: 30.h,
-            width: 30.w,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: darkBlue, width: 1),
+                  shape: BoxShape.circle),
+              height: 30.h,
+              width: 30.w,
+            ),
           )
         ],
         title: SizedBox(

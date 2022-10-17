@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:untitled/app/features/grocery/domain/entities/offer.dart';
 import 'package:untitled/core/presentation/theme/colors.dart';
 import 'package:untitled/core/presentation/theme/text_styles.dart';
@@ -14,13 +15,15 @@ class OffersListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       itemCount: offers.length,
+      padding: EdgeInsets.symmetric(horizontal: 11).r,
+
+      scrollDirection: Axis.horizontal,
       itemBuilder: (BuildContext context, int index) {
         final offer = offers[index];
         print(offer.availableUntil.formatDate(offer.availableUntil.input));
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 11).r,
           decoration: BoxDecoration(
               color: pink, borderRadius: BorderRadius.circular(10)),
           child: Row(children: [
@@ -71,10 +74,13 @@ class OffersListView extends StatelessWidget {
                     style: w500Sp9),
                 SizedBox(height: 11.h),
               ],
-            )
+            ),
+            SizedBox(
+              width: 38.4.w,
+            ),
           ]),
         );
-      },
+      }, separatorBuilder: (BuildContext context, int index) { return SizedBox(width: 11.w); },
     );
   }
 }
