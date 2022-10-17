@@ -7,7 +7,7 @@ class GroceryData {
   final List<Category> categories;
   final List<Address> addresses;
   final List<FavouriteDeal> deals;
-  final List<Offer> offer;
+  final List<Offer> offers;
 
 //<editor-fold desc="Data Methods">
 
@@ -15,7 +15,7 @@ class GroceryData {
     required this.categories,
     required this.addresses,
     required this.deals,
-    required this.offer,
+    required this.offers,
   });
 
   @override
@@ -26,14 +26,14 @@ class GroceryData {
           categories == other.categories &&
           addresses == other.addresses &&
           deals == other.deals &&
-          offer == other.offer);
+          offers == other.offers);
 
   @override
   int get hashCode =>
       categories.hashCode ^
       addresses.hashCode ^
       deals.hashCode ^
-      offer.hashCode;
+      offers.hashCode;
 
   // copy with
   GroceryData copyWith({
@@ -46,7 +46,7 @@ class GroceryData {
       categories: categories ?? this.categories,
       addresses: addresses ?? this.addresses,
       deals: deals ?? this.deals,
-      offer: offer ?? this.offer,
+      offers: offer ?? this.offers,
     );
   }
 
@@ -58,7 +58,7 @@ class GroceryData {
           (map['addresses'] as List).map((e) => Address.fromMap(e)).toList(),
       deals:
           (map['deals'] as List).map((e) => FavouriteDeal.fromMap(e)).toList(),
-      offer: (map['offers'] as List).map((e) => Offer.fromMap(e)).toList(),
+      offers: (map['offers'] as List).map((e) => Offer.fromMap(e)).toList(),
     );
   }
 

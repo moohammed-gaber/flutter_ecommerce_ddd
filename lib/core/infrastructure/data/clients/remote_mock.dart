@@ -18,6 +18,14 @@ class RemoteMock {
                 {
                   "name": "Office Address",
                   "address": "Axis Istanbul, B2 Blok Floor 2, Office 11"
+                },
+                {
+                  "name": "Office Address",
+                  "address": "Axis Istanbul, B2 Blok Floor 2, Office 11"
+                },
+                {
+                  "name": "Office Address",
+                  "address": "Axis Istanbul, B2 Blok Floor 2, Office 11"
                 }
               ],
               "deals": [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/app/features/grocery/domain/entities/category.dart';
+import 'package:untitled/core/presentation/theme/text_styles.dart';
 import 'package:untitled/core/presentation/widgets/custom_image.dart';
 
 class CategoryListView extends StatelessWidget {
@@ -32,7 +33,7 @@ class CategoryListView extends StatelessWidget {
             SizedBox(
               height: 6.h,
             ),
-            Text(category.name)
+            Text(category.name, style: w500Sp10)
           ],
         );
       },

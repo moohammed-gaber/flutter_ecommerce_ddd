@@ -90,18 +90,22 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
         },
         child: Stack(
           children: [
-            Image.asset('assets/icons/cart.png'),
-            GetBuilder<CartController>(
-                id: 'total',
-                builder: (logic) {
-                  final total = logic.state.loadDataState.value;
-                  if (total is CartDataLoadSuccess)
-                    return Text(
-                      logic.cart.total.priceWithCurrency,
-                      style: w400Sp11White,
-                    );
-                  return SizedBox();
-                }),
+            Center(child: Image.asset('assets/icons/cart.png',width: 30.w,height: 30.h)),
+            Positioned(
+              bottom: 32.h,
+              left: 6.w,
+              child: GetBuilder<CartController>(
+                  id: 'total',
+                  builder: (logic) {
+                    final total = logic.state.loadDataState.value;
+                    if (total is CartDataLoadSuccess)
+                      return Text(
+                        logic.cart.total.priceWithCurrency,
+                        style: w400Sp11White,
+                      );
+                    return SizedBox();
+                  }),
+            ),
           ],
         ),
       ),
@@ -112,24 +116,37 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
           selectedLabelStyle: w400Sp7,
           selectedItemColor: red,
           unselectedFontSize: 7.sp,
+
           selectedFontSize: 7.sp,
-          type: BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.shifting,
           currentIndex: logic.state.selectedBottomNavIndex,
           items: [
             BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/grocery.png',
-                ),
-                label: 'Grocery'),
+              icon: Image.asset(
+                'assets/icons/grocery.png',
+                color: logic.state.selectedBottomNavIndex == 0 ? red : null,
+              ),
+              label: 'Grocery',
+            ),
             BottomNavigationBarItem(
-                icon: Image.asset('assets/icons/notification.png'),
+                icon: Image.asset('assets/icons/notification.png',
+                  color: logic.state.selectedBottomNavIndex == 1 ? red : null,
+
+                ),
+
                 label: 'News'),
             BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
             BottomNavigationBarItem(
-                icon: Image.asset('assets/icons/love.png'),
+                icon: Image.asset('assets/icons/love.png',
+                  color: logic.state.selectedBottomNavIndex == 3 ? red : null,
+
+                ),
                 label: 'Favourites'),
             BottomNavigationBarItem(
-                icon: Image.asset('assets/icons/wallet.png'), label: 'Cart')
+                icon: Image.asset('assets/icons/wallet.png',
+                  color: logic.state.selectedBottomNavIndex == 4 ? red : null,
+
+                ), label: 'Cart')
           ],
         );
       }),
@@ -142,8 +159,8 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
               currentPath = route.settings.name;
               return true;
             });
-            controller
-                .updateSelectedBottomNavBarIndex(routeToIndex[currentPath]??0);
+            controller.updateSelectedBottomNavBarIndex(
+                routeToIndex[currentPath] ?? 0);
             print('currentPath $currentPath');
 
             return false;
@@ -151,7 +168,7 @@ class HomeView extends GetView<HomeController> implements HomeViewContract {
           return true;
         },
         child: Navigator(
-          transitionDelegate: DefaultTransitionDelegate(),
+            transitionDelegate: DefaultTransitionDelegate(),
             initialRoute: Routes.GROCERY,
             key: navigatorKey,
             onGenerateRoute: (RouteSettings settings) {

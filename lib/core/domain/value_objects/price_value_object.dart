@@ -4,7 +4,7 @@ class Price {
   Price(this.value);
 
   // price with dollar
-  String get priceWithCurrency => '\$ ${value}';
+  String get priceWithCurrency => '\$${value}';
 
   // operator +
   Price operator +(Price other) {

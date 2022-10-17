@@ -20,6 +20,8 @@ TextStyle get w500Sp11 => TextStyle(
 
 TextStyle get boldSp10 => TextStyle(
     color: Color(0xff474749), fontWeight: FontWeight.bold, fontSize: 11.sp);
+TextStyle get w500Sp10 => TextStyle(
+    color: Color(0xff474749), fontWeight: FontWeight.w500, fontSize: 10.sp);
 
 TextStyle get w500Sp9 => TextStyle(
     color: Color(0xff474749), fontWeight: FontWeight.w500, fontSize: 9.sp);
